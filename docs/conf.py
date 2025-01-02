@@ -22,7 +22,7 @@ import periodicity_detection  # noqa: E402
 # -- Project information -----------------------------------------------------
 
 project = "periodicity-detection"
-copyright = "2022-2023, Sebastian Schmidl"
+copyright = "2022-2025, Sebastian Schmidl"
 author = "Sebastian Schmidl"
 version = periodicity_detection.__version__
 release = periodicity_detection.__version__
