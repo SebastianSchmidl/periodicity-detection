@@ -52,6 +52,7 @@ jobs:
         use-mamba: true
         auto-update-conda: true
         python-version: ${{ matrix.python_version }}
+        channels: "defaults"
     - name: Install dependencies
       run: |
         pip install -r requirements.dev
