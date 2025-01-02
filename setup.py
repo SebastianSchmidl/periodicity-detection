@@ -127,11 +127,11 @@ if __name__ == "__main__":
         classifiers=[
             "License :: OSI Approved :: MIT License",
             "Programming Language :: Python :: 3",
-            "Programming Language :: Python :: 3.7",
-            "Programming Language :: Python :: 3.8",
             "Programming Language :: Python :: 3.9",
             "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",
+            "Programming Language :: Python :: 3.12",
+            "Programming Language :: Python :: 3.13",
             "Typing :: Typed",
             "Topic :: Software Development",
             "Topic :: Scientific/Engineering",
@@ -145,7 +145,7 @@ if __name__ == "__main__":
             "dev": DEV_REQUIRED,
             "docs": DOCS_REQUIRED,
         },
-        python_requires=">=3.7",
+        python_requires=">=3.9",
         test_suite="tests",
         cmdclass={
             "test": PyTestCommand,

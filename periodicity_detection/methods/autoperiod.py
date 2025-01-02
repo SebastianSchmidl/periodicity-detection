@@ -472,6 +472,6 @@ class Autoperiod:
 
         periods = list(x[3] for x in ranges)
         if len(periods) > 0:
-            return np.unique(periods)[::-1][: self._return_multi].astype(int)
+            return list(np.unique(periods)[::-1][: self._return_multi].astype(int))
         else:
             return [1]

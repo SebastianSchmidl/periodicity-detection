@@ -17,15 +17,15 @@ skip_covered = true
 sort = "Cover"
 
 [tool.black]
-target-version = ['py37']
+target-version = ['py39']
 
 [tool.isort]
-py_version = "37"
+py_version = "39"
 profile = "black" # Play nicely with black
 src_paths = ["periodicity_detection", "tests"]
 
 [tool.mypy]
-python_version = "3.7"
+python_version = "3.9"
 show_error_codes = true
 
 [[tool.mypy.overrides]]
