@@ -30,7 +30,7 @@ jobs:
           pip install ".[dev]"
       - name: Typcheck with mypy
         run: |
-          mypy periodicity_detection test
+          mypy periodicity_detection tests
       - name: Lint with flake8
         run: |
           flake8 . --count --show-source --statistics
