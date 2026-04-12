@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "periodicity_detection"
-version = "0.2.0rc2"
+version = "0.2.0"
 description = "Detect the dominant period in univariate, equidistant time series data."
 authors = [{ name = "Sebastian Schmidl", email = "sebastian.schmidl@hpi.de" }]
 license = "MIT"
