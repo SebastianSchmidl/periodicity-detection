@@ -12,7 +12,7 @@ defaults:
 
 jobs:
   check:
-    name: Run checks for periodicity-detection on ubuntu with python 3.9
+    name: Run checks for periodicity-detection
     runs-on: ubuntu-latest
 
     steps:
@@ -22,14 +22,14 @@ jobs:
         with:
           use-mamba: true
           auto-update-conda: true
-          python-version: "3.9"
+          python-version: "3.10"
           channels: "defaults"
       - name: Install dependencies
         run: |
-          pip install -r requirements.dev
+          pip install ".[dev]"
       - name: Typcheck with mypy
         run: |
-          python setup.py typecheck
+          mypy periodicity_detection tests
       - name: Lint with flake8
         run: |
           flake8 . --count --show-source --statistics
@@ -41,7 +41,7 @@ jobs:
       max-parallel: 3
       matrix:
         os: [ubuntu-latest] # [ubuntu-latest, windows-latest, macOS-latest]
-        python_version: ["3.9", "3.13"]
+        python_version: ["3.10", "3.14"]
       fail-fast: false
 
     steps:
@@ -55,10 +55,10 @@ jobs:
         channels: "defaults"
     - name: Install dependencies
       run: |
-        pip install -r requirements.dev
+        pip install ".[dev]"
     - name: Test with pytest
       run: |
-        python setup.py test
+        pytest --cov-report=term --cov-report=xml:coverage.xml --cov=periodicity_detection tests
     - name: Upload Coverage to Codecov
       if: ${{ matrix.os == 'ubuntu-latest' }}
       uses: codecov/codecov-action@v6
