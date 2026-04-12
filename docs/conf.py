@@ -22,7 +22,7 @@ import periodicity_detection  # noqa: E402
 # -- Project information -----------------------------------------------------
 
 project = "periodicity-detection"
-copyright = "2022-2025, Sebastian Schmidl"
+copyright = "2022-2026, Sebastian Schmidl"
 author = "Sebastian Schmidl"
 version = periodicity_detection.__version__
 release = periodicity_detection.__version__
@@ -78,7 +78,7 @@ myst_heading_anchors = 3
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "numpy": ("https://numpy.org/doc/1.21/", None),
-    "pandas": ("https://pandas.pydata.org/pandas-docs/version/1.3/", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/version/1.5/", None),
     "statsmodels": ("https://www.statsmodels.org/v0.13.5/", None),
     "tsfresh": ("https://tsfresh.readthedocs.io/en/latest/", None),
 }
