@@ -12,7 +12,7 @@ defaults:
 
 jobs:
   check:
-    name: Run checks for periodicity-detection on ubuntu with python 3.9
+    name: Run checks for periodicity-detection
     runs-on: ubuntu-latest
 
     steps:

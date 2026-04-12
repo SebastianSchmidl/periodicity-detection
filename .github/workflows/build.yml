@@ -13,7 +13,7 @@ defaults:
 
 jobs:
   check:
-    name: Run checks for periodicity-detection on ubuntu with python 3.9
+    name: Run checks for periodicity-detection
     runs-on: ubuntu-latest
 
     steps:
@@ -117,8 +117,8 @@ jobs:
         name: packages-source
         path: dist
 
-  build-manylinux-wheels:
-    name: Build manylinux wheels
+  build-manylinux-wheel:
+    name: Build manylinux wheel
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
     needs:
       - test
@@ -127,11 +127,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      - name: Build manylinux Python wheels
-        uses: RalfG/python-wheels-manylinux-build@v0.7.1-manylinux2014_x86_64
-        with:
-          # our wheel is purely python, so this creates a *-none-any.wheel and other versions are not required for now
-          python-versions: 'cp310-cp310m'
+      - name: Build pure-Python wheel
+        run: |
+          python -m pip wheel --no-deps --wheel-dir dist/ .
       - name: List packages
         run: |
           ls -alh dist
@@ -144,7 +142,7 @@ jobs:
   publish:
     name: Publish distributions
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
-    needs: [build-source-distribution, build-manylinux-wheels]
+    needs: [build-source-distribution, build-manylinux-wheel]
     runs-on: ubuntu-latest
     environment: release
     permissions:
