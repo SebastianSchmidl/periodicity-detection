@@ -47,7 +47,7 @@ Installation
 
 Prerequisites:
 
-- python >= 3.7, <= 3.11
+- python >= 3.10, <= 3.14
 - pip >= 20
 
 periodicity-detection is published to `PyPI <https://pypi.org/project/periodicity-detection>`_ and you can install it

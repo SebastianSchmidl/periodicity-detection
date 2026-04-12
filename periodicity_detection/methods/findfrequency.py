@@ -121,9 +121,9 @@ class FindFrequency:
             # our purposes
             # from statsmodels.regression import yule_walker
             # ar, var = yule_walker(x, order=order, demean=False)
-            ar, var, _ = aryule(x, order=order)
-            ar_coeffs.append(ar)
-            ar_vars.append(var)
+            array, variance, _ = aryule(x, order=order)
+            ar_coeffs.append(array)
+            ar_vars.append(variance)
 
         # calculate AICs
         # formula directly taken from R stats-library:
@@ -154,7 +154,7 @@ class FindFrequency:
             axs[0, 0].set_xlabel("order")
             axs[0, 0].set_ylabel("AIC")
             axs[0, 0].legend()
-        return ar, var, order
+        return ar, float(var), int(order)
 
     # TODO: optimize (precomputed LUT for cs and sn?)
     def _spectrum(self, ar: np.ndarray, var: float, order: int) -> np.ndarray:

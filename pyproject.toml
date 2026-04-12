@@ -1,32 +1,91 @@
-[metadata]
-license_files = {file="LICENSE"}
-
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "periodicity_detection"
+version = "0.2.0rc2"
+description = "Detect the dominant period in univariate, equidistant time series data."
+authors = [{ name = "Sebastian Schmidl", email = "sebastian.schmidl@hpi.de" }]
+license = "MIT"
+license-files = ["./LICENSE"]
+readme = { content-type = "text/markdown", file = "README.md" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Typing :: Typed",
+    "Topic :: Software Development",
+    "Topic :: Scientific/Engineering",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.21.6",
+    "pandas>=1.5.3",
+    "scipy>=1.7.3",
+    "statsmodels>=0.13.5",
+    "spectrum>=0.8",
+    "typing_extensions>=4.7.1",
+    "matplotlib>=3.5.3",
+]
+
+[project.urls]
+source = "https://github.com/SebastianSchmidl/periodicity-detection"
+documentation = "https://periodicity-detection.readthedocs.io"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "mypy==1.9.0",
+    "flake8==5.0.4",
+    "black==23.1",
+    "pre-commit==2.21",
+]
+docs = [
+    "sphinx==5.0.2",
+    "myst-parser==0.18.0",
+    "sphinx_rtd_theme==1.0.0",
+    "sphinx_rtd_dark_mode==1.2.4",
+]
+
+[project.scripts]
+"periodicity" = "periodicity_detection.__main__:cli"
 
 [tool.coverage.run]
 branch = false
 omit = ["**/__main__.py"]
 
 [tool.coverage.report]
-exclude_lines =["pragma: no cover", "raise NotImplementedError", "\\.\\.\\.", "def __repr__", "pass"]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "\\.\\.\\.",
+    "def __repr__",
+    "pass",
+]
 #fail_under = 80
-fail_under = 0  # for testing purposes
+fail_under = 0      # for testing purposes
 skip_covered = true
 sort = "Cover"
 
 [tool.black]
-target-version = ['py39']
+target-version = ['py310']
 
 [tool.isort]
-py_version = "39"
-profile = "black" # Play nicely with black
+py_version = "310"
+profile = "black"                              # Play nicely with black
 src_paths = ["periodicity_detection", "tests"]
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 show_error_codes = true
+pretty = true
 
 [[tool.mypy.overrides]]
 module = [
@@ -35,6 +94,6 @@ module = [
     "pandas.*",
     "statsmodels.*",
     "scipy.*",
-    "spectrum.*"
+    "spectrum.*",
 ]
 ignore_missing_imports = true
