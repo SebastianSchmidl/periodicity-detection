@@ -61,9 +61,9 @@ License
 ^^^^^^^
 
 The project is licensed under the `MIT license <https://mit-license.org>`_. See the
-`LICENSE <https://github.com/CodeLionX/periodicity-detection/blob/main/LICENSE>`_ file for more details.
+`LICENSE <https://github.com/SebastianSchmidl/periodicity-detection/blob/main/LICENSE>`_ file for more details.
 
-    Copyright (c) 2022-2023 Sebastian Schmidl
+    Copyright (c) 2022-2026 Sebastian Schmidl
 
 User Guide
 ----------
